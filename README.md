@@ -1,0 +1,1 @@
+# GlobalAnything.com
