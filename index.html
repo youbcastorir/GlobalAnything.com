@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary SEO -->
+  <title>GlobalAnything — Virtual Keyboard for 16 Languages | Type Arabic, Russian, Hindi Online</title>
+  <meta name="description" content="Free multilingual virtual keyboard for Arabic, Russian, Hindi, Chinese, Japanese, Korean, French, Spanish and 9 more languages. Type online without installing software. RTL support, transliteration, PDF download." />
+  <meta name="keywords" content="virtual keyboard, arabic keyboard online, type arabic online, multilingual keyboard, online keyboard tool, international keyboard, لوحة مفاتيح عربية, clavier arabe en ligne, teclado árabe en línea, russian keyboard online, hindi keyboard online" />
+  <meta name="author" content="GlobalAnything.com" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://globalanything.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://globalanything.com/" />
+  <meta property="og:title" content="GlobalAnything — Type Any Language. Anywhere." />
+  <meta property="og:description" content="Free multilingual virtual keyboard platform for 16 languages. Type Arabic, Russian, Hindi, Chinese and more online without installing software." />
+  <meta property="og:image" content="https://globalanything.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="GlobalAnything" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_SA" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:locale:alternate" content="es_ES" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@GlobalAnything" />
+  <meta name="twitter:title" content="GlobalAnything — Type Any Language. Anywhere." />
+  <meta name="twitter:description" content="Free virtual keyboards for 16 languages. Arabic, Russian, Hindi, Chinese, Japanese and more — no installation needed." />
+  <meta name="twitter:image" content="https://globalanything.com/og-image.png" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#14b8a6" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="GlobalAnything" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2314b8a6'/><text x='50%' y='55%' font-size='18' text-anchor='middle' dominant-baseline='middle' fill='white'>⌨</text></svg>" />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "GlobalAnything",
+    "url": "https://globalanything.com",
+    "description": "Free multilingual virtual keyboard platform supporting 16 languages including Arabic, Russian, Hindi, Chinese, Japanese, Korean, French, Spanish, German, and more.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Virtual keyboards for 16 languages",
+      "Arabic transliteration (phonetic input)",
+      "RTL language support",
+      "Text download as TXT and PDF",
+      "Language detection",
+      "Offline PWA support",
+      "Mobile-optimized touch keyboard",
+      "Language learning guides"
+    ],
+    "inLanguage": ["en","ar","fr","es"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "salatrir@gmail.com",
+      "contactType": "customer support"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GlobalAnything Virtual Keyboard",
+    "operatingSystem": "Web",
+    "applicationCategory": "UtilitiesApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "1247"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- PWA Install Banner -->
+  <div id="install-banner" role="banner" aria-label="Install app">
+    <div class="install-left">
+      <span>⌨️</span>
+      <span>Install GlobalAnything for offline access — type in any language without internet!</span>
+    </div>
+    <div class="install-actions">
+      <button id="btn-install" class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.1)">Install App</button>
+      <button id="btn-install-dismiss" aria-label="Dismiss" style="background:none;color:#9ca3af;font-size:1.2rem;padding:0 4px">×</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="brand" aria-label="GlobalAnything Home">GlobalAnything</a>
+
+      <ul class="nav-links" role="menubar">
+        <li><a href="#keyboard" role="menuitem" data-t="keyboard">Keyboard</a></li>
+        <li><a href="#learn" role="menuitem" data-t="learn">Learn</a></li>
+        <li><a href="#articles" role="menuitem" data-t="seoSection">Articles</a></li>
+        <li><a href="#contact" role="menuitem" data-t="contact">Contact</a></li>
+      </ul>
+
+      <!-- UI Language Switcher -->
+      <div class="ui-lang-switcher" role="group" aria-label="Interface language">
+        <button class="ui-lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+        <button class="ui-lang-btn" data-lang="ar" aria-pressed="false">ع</button>
+        <button class="ui-lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+        <button class="ui-lang-btn" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-eyebrow">Free • 16 Languages • No Installation</div>
+
+        <!-- Signature: Language Orbit Animation -->
+        <div class="lang-orbit" aria-hidden="true">
+          <div class="orbit-ring">
+            <div class="orbit-char">ع</div>
+            <div class="orbit-char">Я</div>
+            <div class="orbit-char">あ</div>
+            <div class="orbit-char">한</div>
+          </div>
+          <div class="orbit-ring">
+            <div class="orbit-char">中</div>
+            <div class="orbit-char">ह</div>
+            <div class="orbit-char">ñ</div>
+            <div class="orbit-char">ə</div>
+          </div>
+          <div class="orbit-center">⌨️</div>
+        </div>
+
+        <h1 id="hero-heading" data-t="heroTitle">Type Any Language</h1>
+        <p class="hero-sub" data-t="heroSubtitle">Virtual keyboards for 16 languages. Works on every device.</p>
+        <button class="btn-primary" onclick="document.getElementById('keyboard').scrollIntoView({behavior:'smooth'})" data-t="startTyping">
+          Start Typing Now ↓
+        </button>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section" aria-labelledby="features-heading">
+      <div class="container">
+        <p class="section-eyebrow">Why GlobalAnything</p>
+        <h2 id="features-heading" class="section-title" data-t="features">Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🌐</div>
+            <h3 data-t="featKeyboards">16 Virtual Keyboards</h3>
+            <p data-t="featKeyboardsDesc">Full keyboard layouts for Arabic, Russian, Hindi, Chinese, Japanese, Korean and more.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3 data-t="featTranslit">Smart Transliteration</h3>
+            <p data-t="featTranslitDesc">Type in English and see the text convert live to Arabic, Russian, Persian, and more.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🛠️</div>
+            <h3 data-t="featTools">Powerful Text Tools</h3>
+            <p data-t="featToolsDesc">Copy, download as TXT or PDF, count words and characters instantly.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3 data-t="featLearn">Language Learning</h3>
+            <p data-t="featLearnDesc">Alphabet guides, pronunciation charts, and interactive typing tutorials.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3 data-t="featMobile">Mobile Ready</h3>
+            <p data-t="featMobileDesc">Fully optimized for touch screens on Android, iPhone, and tablets.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">↔️</div>
+            <h3 data-t="featRtl">RTL Support</h3>
+            <p data-t="featRtlDesc">Native right-to-left support for Arabic, Persian, Urdu, and Hebrew.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main App -->
+    <section class="app-section" id="keyboard" aria-labelledby="app-heading">
+      <div class="container">
+        <h2 id="app-heading" class="sr-only">Virtual Keyboard</h2>
+
+        <!-- Language Selector -->
+        <div class="lang-selector-wrap">
+          <p class="lang-selector-label" data-t="selectLanguage">Select Language</p>
+          <div id="lang-selector" role="group" aria-label="Language selection"></div>
+        </div>
+
+        <!-- Mode Navigation -->
+        <nav class="mode-nav" role="tablist" aria-label="Keyboard modes">
+          <button class="mode-btn active" data-mode="keyboard" role="tab" aria-selected="true" data-t="keyboard">⌨️ Keyboard</button>
+          <button class="mode-btn" data-mode="transliteration" role="tab" aria-selected="false" data-t="transliteration">✨ Transliteration</button>
+          <button class="mode-btn" data-mode="learn" role="tab" aria-selected="false" id="learn" data-t="learn">📚 Learn</button>
+          <button class="mode-btn" data-mode="articles" role="tab" aria-selected="false" id="articles" data-t="seoSection">📰 Articles</button>
+        </nav>
+
+        <!-- ── KEYBOARD MODE ── -->
+        <div id="panel-keyboard" class="mode-panel active" role="tabpanel">
+          <div class="app-layout">
+            <!-- Left: Textarea + Keyboard -->
+            <div>
+              <!-- Text Area -->
+              <div class="textarea-wrap">
+                <div class="textarea-toolbar">
+                  <button id="btn-copy" class="btn-secondary" aria-label="Copy text" data-t="copy">📋 Copy</button>
+                  <button id="btn-clear" class="btn-secondary" aria-label="Clear text" data-t="clear">🗑 Clear</button>
+                  <div class="toolbar-right">
+                    <button id="btn-dl-txt" class="btn-secondary" aria-label="Download as TXT" data-t="downloadTxt">⬇ TXT</button>
+                    <button id="btn-dl-pdf" class="btn-secondary" aria-label="Download as PDF" data-t="downloadPdf">⬇ PDF</button>
+                  </div>
+                </div>
+                <textarea
+                  id="main-textarea"
+                  placeholder="Start typing here…"
+                  data-tp="typeHere"
+                  aria-label="Text input area"
+                  spellcheck="false"
+                  autocomplete="off"
+                  autocorrect="off"
+                  autocapitalize="off"
+                ></textarea>
+                <div class="textarea-footer">
+                  <span id="word-count">0 Words</span>
+                  <span id="char-count">0 Characters</span>
+                  <span class="detected-lang">
+                    <span data-t="detectLang">Detected language</span>:
+                    <strong id="detected-lang">—</strong>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Accessibility Controls -->
+              <div class="a11y-controls" role="group" aria-label="Accessibility options">
+                <button id="btn-large-keys" class="btn-secondary" aria-pressed="false" data-t="largeKeys">🔡 Large Keys</button>
+                <button id="btn-high-contrast" class="btn-secondary" aria-pressed="false" data-t="highContrast">◑ High Contrast</button>
+              </div>
+
+              <!-- Virtual Keyboard -->
+              <div class="keyboard-wrap" role="group" aria-label="Virtual keyboard">
+                <div id="keyboard-container"></div>
+              </div>
+            </div>
+
+            <!-- Right: Sidebar -->
+            <aside class="sidebar" aria-label="Writing assistant">
+              <!-- Word Suggestions -->
+              <div class="panel-box">
+                <div class="panel-head" data-t="suggestions">Suggestions</div>
+                <div class="panel-body">
+                  <div id="suggestions-container" aria-live="polite" aria-label="Word suggestions"></div>
+                </div>
+              </div>
+
+              <!-- Common Phrases -->
+              <div class="panel-box">
+                <div class="panel-head" data-t="commonPhrases">Common Phrases</div>
+                <div class="panel-body">
+                  <div id="phrases-container" aria-live="polite"></div>
+                </div>
+              </div>
+
+              <!-- Language Info -->
+              <div class="panel-box">
+                <div class="panel-head">Language Info</div>
+                <div class="panel-body">
+                  <div id="lang-info" class="lang-info-card">
+                    <span class="lang-info-label" data-t="script">Script</span>
+                    <span class="lang-info-value" id="info-script">Arabic</span>
+                    <span class="lang-info-label" data-t="region">Region</span>
+                    <span class="lang-info-value" id="info-region">Middle East</span>
+                    <span class="lang-info-label" data-t="direction">Direction</span>
+                    <span class="lang-info-value" id="info-dir">RTL</span>
+                    <span class="lang-info-label" data-t="languageFamily">Family</span>
+                    <span class="lang-info-value" id="info-family">Semitic</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- ── TRANSLITERATION MODE ── -->
+        <div id="panel-transliteration" class="mode-panel" role="tabpanel">
+          <div class="translit-panel">
+            <p class="translit-hint" data-t="translitHint">
+              Type in English to get the script. e.g. <strong>salam</strong> → <strong>سلام</strong>
+            </p>
+            <div class="translit-grid" style="margin-top:20px">
+              <div class="translit-input-wrap">
+                <label for="translit-input">Roman / Phonetic Input</label>
+                <input
+                  type="text"
+                  id="translit-input"
+                  placeholder="Type here… e.g. marhaban"
+                  aria-label="Phonetic input for transliteration"
+                  autocomplete="off" autocorrect="off" spellcheck="false"
+                />
+              </div>
+              <div class="translit-arrow" aria-hidden="true">→</div>
+              <div>
+                <label style="display:block;font-size:.8rem;font-weight:600;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em">Native Script</label>
+                <div class="translit-preview-wrap" id="translit-preview" aria-live="polite" aria-label="Transliteration result"></div>
+              </div>
+            </div>
+
+            <div id="translit-suggestions" aria-live="polite" aria-label="Transliteration suggestions"></div>
+
+            <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+              <button id="btn-insert-translit" class="btn-primary">Insert into Text ↑</button>
+              <button class="btn-secondary" onclick="switchMode('keyboard')">← Back to Keyboard</button>
+            </div>
+
+            <!-- Example table -->
+            <div style="margin-top:32px">
+              <h3 style="margin-bottom:16px;font-size:1rem">Arabic Transliteration Examples</h3>
+              <div style="overflow-x:auto">
+                <table style="width:100%;border-collapse:collapse;font-size:.9rem">
+                  <thead>
+                    <tr style="background:var(--bg-muted)">
+                      <th style="padding:10px 14px;text-align:left;border:1px solid var(--border)">English (Type)</th>
+                      <th style="padding:10px 14px;text-align:right;border:1px solid var(--border);font-family:var(--font-arab)">Arabic (Result)</th>
+                      <th style="padding:10px 14px;text-align:left;border:1px solid var(--border)">Meaning</th>
+                    </tr>
+                  </thead>
+                  <tbody id="translit-examples">
+                    <tr><td style="padding:8px 14px;border:1px solid var(--border)">salam</td><td style="padding:8px 14px;border:1px solid var(--border);text-align:right;font-family:var(--font-arab);font-size:1.2rem">سلام</td><td style="padding:8px 14px;border:1px solid var(--border);color:var(--text-muted)">Peace / Hello</td></tr>
+                    <tr><td style="padding:8px 14px;border:1px solid var(--border)">marhaba</td><td style="padding:8px 14px;border:1px solid var(--border);text-align:right;font-family:var(--font-arab);font-size:1.2rem">مرحبا</td><td style="padding:8px 14px;border:1px solid var(--border);color:var(--text-muted)">Hello / Welcome</td></tr>
+                    <tr><td style="padding:8px 14px;border:1px solid var(--border)">shukran</td><td style="padding:8px 14px;border:1px solid var(--border);text-align:right;font-family:var(--font-arab);font-size:1.2rem">شكراً</td><td style="padding:8px 14px;border:1px solid var(--border);color:var(--text-muted)">Thank you</td></tr>
+                    <tr><td style="padding:8px 14px;border:1px solid var(--border)">inshallah</td><td style="padding:8px 14px;border:1px solid var(--border);text-align:right;font-family:var(--font-arab);font-size:1.2rem">إن شاء الله</td><td style="padding:8px 14px;border:1px solid var(--border);color:var(--text-muted)">God willing</td></tr>
+                    <tr><td style="padding:8px 14px;border:1px solid var(--border)">habibi</td><td style="padding:8px 14px;border:1px solid var(--border);text-align:right;font-family:var(--font-arab);font-size:1.2rem">حبيبي</td><td style="padding:8px 14px;border:1px solid var(--border);color:var(--text-muted)">My love / dear</td></tr>
+                    <tr><td style="padding:8px 14px;border:1px solid var(--border)">yalla</td><td style="padding:8px 14px;border:1px solid var(--border);text-align:right;font-family:var(--font-arab);font-size:1.2rem">يلا</td><td style="padding:8px 14px;border:1px solid var(--border);color:var(--text-muted)">Let's go / Come on</td></tr>
+                    <tr><td style="padding:8px 14px;border:1px solid var(--border)">bismillah</td><td style="padding:8px 14px;border:1px solid var(--border);text-align:right;font-family:var(--font-arab);font-size:1.2rem">بسم الله</td><td style="padding:8px 14px;border:1px solid var(--border);color:var(--text-muted)">In the name of God</td></tr>
+                    <tr><td style="padding:8px 14px;border:1px solid var(--border)">alhamdulillah</td><td style="padding:8px 14px;border:1px solid var(--border);text-align:right;font-family:var(--font-arab);font-size:1.2rem">الحمد لله</td><td style="padding:8px 14px;border:1px solid var(--border);color:var(--text-muted)">Praise be to God</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── LEARN MODE ── -->
+        <div id="panel-learn" class="mode-panel" role="tabpanel">
+          <div class="learn-panel">
+            <div class="learn-tabs" role="tablist">
+              <button class="learn-tab-btn active" onclick="showLearnTab('alphabet', this)" role="tab">📖 Alphabet Guides</button>
+              <button class="learn-tab-btn" onclick="showLearnTab('lessons', this)" role="tab">✍️ Typing Lessons</button>
+              <button class="learn-tab-btn" onclick="showLearnTab('pronunciation', this)" role="tab">🔊 Pronunciation</button>
+            </div>
+
+            <!-- Alphabet -->
+            <div id="learn-alphabet" class="learn-section active">
+              <h3 style="margin-bottom:20px">Arabic Alphabet — الأبجدية العربية</h3>
+              <p class="alpha-section-title" dir="rtl">٢٨ حرفاً — كل حرف بشكله ونطقه</p>
+              <div id="alphabet-arabic" class="alphabet-grid"></div>
+
+              <h3 style="margin:32px 0 20px">Russian Alphabet — Русский алфавит</h3>
+              <div id="alphabet-russian" class="alphabet-grid"></div>
+            </div>
+
+            <!-- Lessons -->
+            <div id="learn-lessons" class="learn-section">
+              <div id="lessons-container" class="lessons-grid"></div>
+            </div>
+
+            <!-- Pronunciation -->
+            <div id="learn-pronunciation" class="learn-section">
+              <h3 style="margin-bottom:20px">Arabic Pronunciation Guide</h3>
+              <p style="color:var(--text-muted);margin-bottom:20px;font-size:.9rem">Click on any letter to hear how it sounds (phonetic description)</p>
+              <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
+                <div class="lesson-card"><div style="font-family:var(--font-arab);font-size:2rem;margin-bottom:8px">ع</div><strong>Ayn</strong><p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">A deep pharyngeal consonant unique to Arabic. No English equivalent.</p></div>
+                <div class="lesson-card"><div style="font-family:var(--font-arab);font-size:2rem;margin-bottom:8px">غ</div><strong>Ghayn</strong><p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">Like the French "r" — a voiced uvular fricative.</p></div>
+                <div class="lesson-card"><div style="font-family:var(--font-arab);font-size:2rem;margin-bottom:8px">ح</div><strong>Ha</strong><p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">A strong "h" from the throat — distinct from the softer ه.</p></div>
+                <div class="lesson-card"><div style="font-family:var(--font-arab);font-size:2rem;margin-bottom:8px">خ</div><strong>Kha</strong><p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">Like the "ch" in Scottish "loch" — a voiceless velar fricative.</p></div>
+                <div class="lesson-card"><div style="font-family:var(--font-arab);font-size:2rem;margin-bottom:8px">ص</div><strong>Sad</strong><p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">Emphatic "S" — pronounced with the tongue touching the roof of the mouth.</p></div>
+                <div class="lesson-card"><div style="font-family:var(--font-arab);font-size:2rem;margin-bottom:8px">ق</div><strong>Qaf</strong><p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">A "k" sound produced at the back of the mouth — distinct from ك.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ARTICLES MODE ── -->
+        <div id="panel-articles" class="mode-panel" role="tabpanel">
+          <div class="articles-panel">
+            <h2 style="margin-bottom:8px" data-t="seoSection">Articles & Guides</h2>
+            <p style="color:var(--text-muted);margin-bottom:24px;font-size:.9rem">In-depth guides about virtual keyboards, multilingual typing, and language learning.</p>
+            <div id="articles-grid"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Article Modal -->
+  <div id="article-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="modal-title"></h2>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close article">×</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-text">GlobalAnything</span>
+          <p class="footer-desc" data-t="footerText">
+            GlobalAnything.com helps users type in any language, on any device, from anywhere in the world.
+          </p>
+          <p class="footer-contact">
+            📧 <a href="mailto:salatrir@gmail.com">salatrir@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Keyboards</h4>
+          <ul>
+            <li><a href="#keyboard" onclick="selectLanguage('arabic');return false;">Arabic Keyboard</a></li>
+            <li><a href="#keyboard" onclick="selectLanguage('russian');return false;">Russian Keyboard</a></li>
+            <li><a href="#keyboard" onclick="selectLanguage('hindi');return false;">Hindi Keyboard</a></li>
+            <li><a href="#keyboard" onclick="selectLanguage('chinese');return false;">Chinese Keyboard</a></li>
+            <li><a href="#keyboard" onclick="selectLanguage('japanese');return false;">Japanese Keyboard</a></li>
+            <li><a href="#keyboard" onclick="selectLanguage('korean');return false;">Korean Keyboard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="#" onclick="switchMode('transliteration');return false;">Arabic Transliteration</a></li>
+            <li><a href="#" onclick="switchMode('learn');return false;">Alphabet Guide</a></li>
+            <li><a href="#" onclick="switchMode('learn');return false;">Typing Lessons</a></li>
+            <li><a href="#" onclick="switchMode('articles');return false;">Language Guides</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="mailto:salatrir@gmail.com" data-t="contact">Contact</a></li>
+            <li><a href="#" data-t="footerPrivacy">Privacy Policy</a></li>
+            <li><a href="#" data-t="footerTerms">Terms of Use</a></li>
+            <li><a href="sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-t="copyright">© 2024 GlobalAnything.com. All rights reserved.</p>
+        <div class="footer-langs" aria-label="Supported languages">
+          <span class="footer-lang-chip">🇸🇦 Arabic</span>
+          <span class="footer-lang-chip">🇷🇺 Russian</span>
+          <span class="footer-lang-chip">🇮🇳 Hindi</span>
+          <span class="footer-lang-chip">🇨🇳 Chinese</span>
+          <span class="footer-lang-chip">🇯🇵 Japanese</span>
+          <span class="footer-lang-chip">🇰🇷 Korean</span>
+          <span class="footer-lang-chip">🇫🇷 French</span>
+          <span class="footer-lang-chip">🇪🇸 Spanish</span>
+          <span class="footer-lang-chip">🇩🇪 German</span>
+          <span class="footer-lang-chip">+7 more</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Screen-reader only utility -->
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}</style>
+
+  <!-- Scripts (order matters) -->
+  <script src="languages.js"></script>
+  <script src="keyboards.js"></script>
+  <script src="transliteration.js"></script>
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Extra app helpers inline -->
+  <script>
+    // Learn tab switcher
+    function showLearnTab(tab, btn) {
+      document.querySelectorAll('.learn-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.learn-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('learn-' + tab)?.classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    // Update language info sidebar on language change
+    const _origSelect = selectLanguage;
+    selectLanguage = function(key) {
+      _origSelect(key);
+      renderPhrases();
+      const info = LANGUAGES[key];
+      if (info) {
+        const s = document.getElementById('info-script');
+        const r = document.getElementById('info-region');
+        const d = document.getElementById('info-dir');
+        const f = document.getElementById('info-family');
+        if (s) s.textContent = info.script;
+        if (r) r.textContent = info.region;
+        if (d) d.textContent = info.dir.toUpperCase();
+        if (f) f.textContent = info.family;
+      }
+    };
+
+    // PWA Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

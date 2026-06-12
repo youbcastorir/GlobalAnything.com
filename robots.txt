@@ -1,0 +1,53 @@
+# robots.txt — GlobalAnything.com
+# https://globalanything.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths (none currently, but ready for future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Crawl delay for polite bots
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://globalanything.com/sitemap.xml
+
+# Allow specific major crawlers explicitly
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
